@@ -1,0 +1,225 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: black;
+}
+span {
+ color: white;
+ font-size: 24px;
+ padding-bottom: 5px;
+ font-family: "book";
+}
+@font-face {
+ font-family: book; /* Имя шрифта */
+ src: url(fonts/book.ttf); /* Путь к файлу со шрифтом */
+}
+@media  {
+
+}
+.box_1 {
+background: black;
+height: auto;
+padding: 20px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+border-bottom: 1px solid white;
+}
+.cup_img {
+  width: 20%;
+  height: 50%;
+  object-fit: contain;
+  top: 60px;
+  left: 160px;
+  position: absolute;
+  animation: cup 3s linear infinite;
+  animation-fill-mode: both;
+}
+.cup {
+  width: 20%;
+  height: 50%;
+  object-fit: contain;
+  position: absolute;
+}
+.object {
+  height: 350px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+@keyframes cup {
+0% {transform: translateY(0px);}
+50% {transform: translateY(30px);}
+100% {transform: translateY(0px);}
+}
+
+.note_img {
+  position: absolute;
+  bottom: 10px;
+  left: 160px;
+  width: 40%;
+  height: 50%;
+  object-fit: contain;
+  animation: note 2s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes note {
+0% {transform: translateY(0px);}
+50% {transform: translateY(10px);}
+100% {transform: translateY(0px);}
+}
+
+.box_img {
+  position: absolute;
+  left: 30%;
+  top: 100px;
+  width: 40%;
+  height: 50%;
+  object-fit: contain;
+  animation: box 4s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes box {
+0% {transform: translateY(0px);}
+50% {transform: translateY(10px);}
+100% {transform: translateY(0px);}
+}
+
+.band_img_1 {
+  position: absolute;
+  right: 5%;
+  top: 40px;
+  width: 40%;
+  height: 50%;
+  object-fit: contain;
+  animation: box 4s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes band_1 {
+0% {transform: translateY(0px);}
+50% {transform: translateY(10px);}
+100% {transform: translateY(0px);}
+}
+.band_img_2 {
+  position: absolute;
+  right: 3%;
+  top: 75px;
+  width: 40%;
+  height: 50%;
+  object-fit: contain;
+  animation: band_2 4s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes band_2 {
+0% {transform: translateY(0px);}
+50% {transform: translateY(20px);}
+100% {transform: translateY(0px);}
+}
+.bag_img {
+  position: relative;
+  right: -20%;
+  top: 3%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  animation: bag 4s linear infinite;
+  animation-fill-mode: both;
+}
+.back {
+  display: none;
+}
+   @keyframes bag{
+   0% {transform: translateY(0px);}
+   50% {transform: translateY(20px);}
+   100% {transform: translateY(0px);}
+ }
+
+@media screen and (max-width: 414px) {
+    .box_1 {
+      display: none;
+    }
+    .back {
+      display: block;
+    }
+   .container {
+     display: block !important;
+   }
+   .cup_img {
+     display: none;
+   }
+   .bag_img {
+     display: none;
+   }
+   .box_img {
+     display: none;
+   }
+   .band_img_2 {
+     display: none;
+   }
+   .band_img_1 {
+     display: none;
+   }
+   .note_img {
+     display: none;
+   }
+
+   }
+.container {
+  height: auto;
+  width: 100%;
+  display: none;
+}
+/* html {
+  height: 100%;
+} */
+body {
+  /* height: 100%;
+  background: url(img/back.png); /* Параметры фона */
+
+}
+.back {
+  width: 100vw;
+   height: 100vh - .header;
+}
+.buy {
+  color: white;
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  margin-top: 3px;
+  padding-left: 14px;
+}
+.buy2 {
+  color: white;
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  margin-top: 23px;
+}
+.buy_text {
+  margin-top: 36px;
+  color: white;
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  text-align: center;
+}

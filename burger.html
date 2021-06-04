@@ -1,0 +1,140 @@
+<html>
+<head>
+    <title>Меню-гамбургер</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <style media="screen">
+      * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #fff;
+    color: #313131;
+    min-height: 100vh;
+    font-family: 'Roboto', Helvetica;
+    font-size: 18px;
+}
+a {
+    color: #242e31;
+    text-decoration: none;
+    font-weight: 600;
+   }
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    height:80px;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    display: flex;
+    padding: 5px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.container{
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+.content-wrapper{
+    width: 100%;
+}
+.header__nav {
+    position: absolute;
+    right: 36px;
+    display: block;
+}
+.header__menu {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+.header__menu li {
+    list-style: none;
+    margin: 0px 0px 0px 36px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.content-wrapper{
+    margin-top: 78px;
+    padding: 10px;
+    line-height: 34px;
+}
+@media(max-width: 767px){
+    .menu-burger__header {
+        position: relative; /* задаем относительное позиционирование */
+        width: 40px; /* определяем размеры блока */
+        height: 35px;
+        display: block;
+        margin-left: 10px;
+    }
+    .header__nav {
+    display: none;
+}
+}
+header {
+    height: 60px;
+}
+.content-wrapper {
+    margin-top: 48px;
+}
+.menu-burger__header span, .menu-burger__header:after, .menu-burger__header:before{
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    background: #515758;
+    margin: 0 auto;
+}
+.menu-burger__header span{
+    top: 21px;
+}
+.menu-burger__header:after, .menu-burger__header:before{
+    content: '';
+}
+.menu-burger__header:after{
+    bottom: 5px;
+}
+.menu-burger__header:before{
+    top: 5px;
+}
+    </style>
+</head>
+<body>
+<header class = "header">
+    <div class="container header__container">
+        <div class="menu-burger__header">
+            <span></span>
+        </div>
+        <nav class="header__nav">
+            <ul class="menu header__menu">
+                <li><a href="" class="menu__item">Главная</a></li>
+                <li><a href="" class="menu__item">Товары</a></li>
+                <li><a href="" class="menu__item">Акции</a></li>
+                <li><a href="" class="menu__item">Новинки</a></li>
+                <li><a href="" class="menu__item">Доставка</a></li>
+                <li><a href="" class="menu__item">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="content-wrapper">
+    <div class = "container content-wrapper__container">
+        <p>
+            Кракозябры на сайте — это не что иное, как неверная интерпретация браузером информации, сохраненной в Вашем файле. В двух словах опишу суть процесса: прежде чем сохранить, к примеру, html-файл, компьютер с помощью кодировочных таблиц переводит каждый символ на свой «компьютерный язык», который состоит из единиц и нулей. И только после этого тщательно сохраняет полученные последовательности ноликов и единичек в ячейках памяти. Когда мы открываем файл в браузере, браузер также «достает из широких штанин» кодировочные таблицы и переводит каждый символ обратно с компьютерного языка на человеческий. И если кодировочные таблицы, в соответствии с которыми браузер отображает символы при открытии файла, отличаются от кодировочных таблиц, которые использовались при сохранении файла, появляются кракозябры.
+        </p>
+    </div>
+</div>
+</body>
+</html>

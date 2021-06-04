@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <title></title>
+    <style media="screen">
+    .spoiler_body {
+      display:none;
+      background-color: black;
+      font-family: "book";
+    }
+    .spoiler_links {
+      cursor:pointer;
+      background-color: red;
+      font-family: "book";
+       }
+       @media(max-width: 767px){
+        .menu-burger__header {
+            position: relative; /* задаем относительное позиционирование */
+            width: 40px; /* определяем размеры блока */
+            height: 35px;
+            display: block;
+            margin-left: 10px;
+        }
+        .menu-burger__header .span, .menu-burger__header:after, .menu-burger__header:before{
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            background: white;
+            margin: 0 auto;
+        }
+        .menu-burger__header .span{
+            top: 21px;
+        }
+        .menu-burger__header:after, .menu-burger__header:before{
+            content: '';
+        }
+        .menu-burger__header:after{
+            bottom: 5px;
+        }
+        .menu-burger__header:before{
+            top: 5px;
+        }
+        header {
+        height: 60px;
+    }
+    .content-wrapper {
+        margin-top: 48px;
+    }
+    }
+
+       .box {
+         height: 155px;
+         display: flex;
+         align-items: center;
+         background-color: black;
+         justify-content: space-between;
+         padding-left: 40px;
+         font-family: "book";
+         border-top: 1px solid white;
+       }
+       .box:first-child {
+         border-top: 0;
+       }
+     .box_black {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+       padding: 15px;
+           font-size: 24px;
+       font-family: "book";
+       /* background-color: black; */
+       border: 1px solid white;
+     }
+     .order_window {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+       font-family: "book";
+           font-size: 24px;
+       padding: 15px;
+       background-color: black;
+       border: 1px solid white;
+     }
+     .box_black_2 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       font-family: "book";
+       /* background-color: black; */
+       border: 1px solid white;
+     }
+     .order_window_2 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       font-family: "book";
+       background-color: black;
+       border: 1px solid white;
+     }
+     .menu {
+       display: flex;
+       justify-content: space-around;
+     }
+     .header_menu_many {
+    display: block;
+     }
+     .burger {
+       display: none;
+         animation-duration: 2s;
+     }
+     .menu_mini {
+       display: none;
+         animation-duration: 2s;
+         z-index: 100;
+         width: 100%;
+         background: black;
+         position: absolute;
+         height: auto;
+     }
+     .open-menu {
+       display: inline-block;
+     }
+     .x2 {
+       display: none;
+       object-fit: cover;
+       margin-right: -6px;
+     }
+     .burger_text {
+       color: white;
+       text-decoration: none;
+       font-size: 41px;
+       font-family: Suisse Intl;
+     }
+     a {
+       color: white;
+       text-decoration: none;
+     }
+     .menu-mini {
+       height: 0;
+       z-index: 100;
+       width: 100%;
+       background: black;
+       position: absolute;
+     }
+     hr {
+       color: white;
+     }
+     ul {
+       margin: 0;
+       padding: 0;
+     }
+     li {
+       margin-top: 32px;
+       margin-bottom: 32px;
+       margin-left: 23px;
+     }
+
+     @media(min-width: 912px){
+.x2 {
+  display: none !important;
+
+}
+.menu_mini {
+  display: none !important;
+
+}
+         }
+     @media(max-width: 912px){
+         .header_menu_many {
+           display: none;
+         }
+         .burger {
+           width: 30px;
+           height: 40px;
+           align-items: center;
+           display: inline-block;
+         }
+         .line {
+           width: 30px;
+           height: 2px;
+           background: white;
+           margin: 7px;
+         }
+
+         .header_menu_mini {
+           display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    padding-right: 27px;
+         }
+     }
+     .content_toggle_2 {
+       padding-top: 15px;
+       padding-bottom: 15px;
+       font-size: 64px;
+       font-family: "book";
+       color: white;
+       text-decoration: none;
+     }
+     .box_black_3 {
+       margin-right: 20px;
+       height: auto;
+           font-size: 24px;
+       width: auto;
+       padding: 15px;
+       font-family: "book";
+       /* background-color: black; */
+       border: 1px solid white;
+     }
+     .order_window_3 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+       padding: 15px;
+           font-size: 24px;
+       font-family: "book";
+       background-color: black;
+       border: 1px solid white;
+     }
+     .content_toggle_3 {
+       padding-top: 15px;
+       padding-bottom: 15px;
+       font-size: 64px;
+       color: white;
+       font-family: "book";
+       text-decoration: none;
+     }
+     .box_black_4 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       font-family: "book";
+       /* background-color: black; */
+       border: 1px solid white;
+     }
+     .book_full {
+       display: flex;
+       justify-content: center;
+     margin: 35px;
+     }
+     .text_full {
+
+     }
+     .order_window_4 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       background-color: black;
+       border: 1px solid white;
+       font-family: "book";
+     }
+     .content_inside {
+       color: white;
+       font-family: "book";
+     }
+     .content_toggle_4 {
+       padding-top: 15px;
+       padding-bottom: 15px;
+       font-size: 64px;
+       color: white;
+       font-family: "book";
+       text-decoration: none;
+     }
+     @font-face {
+      font-family: book; /* Имя шрифта */
+      src: url(fonts/book.ttf); /* Путь к файлу со шрифтом */
+     }
+     .box_black_5 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       font-family: "book";
+       /* background-color: black; */
+       border: 1px solid white;
+     }
+     .order_window_5 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       background-color: black;
+       border: 1px solid white;
+     }
+
+     .content_toggle_5 {
+       padding-top: 15px;
+       padding-bottom: 15px;
+       font-size: 64px;
+       color: white;
+       text-decoration: none;
+     }
+
+     .box_black_6 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       font-family: "book";
+       /* background-color: black; */
+       border: 1px solid white;
+     }
+     .order_window_6 {
+       margin-right: 20px;
+       height: auto;
+       width: auto;
+           font-size: 24px;
+       padding: 15px;
+       background-color: black;
+       border: 1px solid white;
+     }
+
+     .content_toggle_6 {
+       padding-top: 15px;
+       padding-bottom: 15px;
+       font-size: 64px;
+       color: white;
+       text-decoration: none;
+     }
+     .content_toggle {
+       font-size: 64px;
+       color: white;
+       text-decoration: none;
+     }
+     .text_full {
+       font-size: 24px;
+       border: 3px solid white;
+       padding: 25px;
+     }
+     a {
+       text-decoration: none;
+       color: white;
+     }
+     * {
+       margin: 0;
+       padding: 0;
+     }
+     body {
+       background-color: black;
+     }
+     .box_for_features {
+       display: flex;
+       float: right;
+       margin-right: 20px;
+     }
+     .ordered {
+     background-color: white;
+     color: black;
+     }
+     .underline {
+     border-bottom: 3px solid white;
+     }
+     .section_about_book {
+       font-size: 56px;
+       color: white;
+       margin: 0 auto;
+       border-bottom: 1px solid white;
+       margin-top: 78px;
+       font-family: "book";
+     }
+     .hui {
+       margin: -20px -20px -20px -20px;
+       position: absolute;
+       width: auto;
+       height: auto;
+       background-image: url('img/1.jpg');
+       border: 10px solid red;
+       border-style: hidden;
+     }
+     .hui:hover {
+       filter: blur(5px);
+
+     }
+     .pizda {
+       position: relative;
+     }
+     .box_book {
+       width: 100%;
+       justify-content: center;
+       display: flex;
+       font-size: 56px;
+       margin-bottom: 100px;
+     }
+     .box_1 {
+     background: black;
+     height: auto;
+     padding: 20px;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     border-bottom: 1px solid white;
+    }
+
+    .test_container {
+     position: relative;
+     width: 801px;
+     height: 532px;
+     border: 1px solid white;
+     margin: 0 auto;
+     margin-top: 10vh;
+    }
+    .line_under_word {
+     padding-top: 3px;
+     border-bottom: 2px solid white;
+    }
+    span {
+     color: white;
+     font-size: 24px;
+     padding-bottom: 5px;
+    }
+    a {
+     text-decoration: none;
+     font-family: "book";
+    }
+    .underline {
+     position: relative;
+     color: white;
+     cursor: pointer;
+     line-height: 1.5;
+     text-decoration: none;
+    }
+    .underline:after {
+     display: block;
+     position: absolute;
+     left: 0;
+     width: 0;
+     height: 2px;
+     background-color: white;
+     content: "";
+     transition: width 0.3s ease-out;
+    }
+    .content_elements {
+     display: flex;
+    }
+    .content_text {
+    width: 558px;
+    font-family: 'book';
+    font-size: 27px;
+    margin-right: 72px;
+    font-weight: 450;
+    }
+    #slider-wrap{	width:800px;	}
+    #slider{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-left: 40px;
+     margin-top: 10px;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    #slider-wrap2{	width:800px;	}
+    #slider-wrap3{	width:800px;	}
+    #slider-wrap3{	width:800px;	}
+    #slider-wrap4{	width:800px;	}
+    #slider-wrap5{	width:800px;	}
+    #slider-wrap6{	width:800px;	}
+    #slider-wrap7{	width:567px;	}
+    #slider2{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-left: 40px;
+     margin-top: 10px;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    #slider3{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-left: 40px;
+     margin-top: 10px;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    .about_book {
+
+     color: white;
+     font-family: "book";
+     font-size: 31px;
+     padding: 30px;
+     width: 826px;
+    }
+    .box_text {
+     width: auto;
+     height: auto;
+     border: 3px solid white;
+    }
+    #slider4{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-left: 40px;
+     margin-top: 10px;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    #slider5{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-left: 40px;
+     margin-top: 10px;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    #slider6{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-left: 40px;
+     margin-top: 10px;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    #slider7{
+     width:567px;
+     height:338px;
+     overflow: hidden;
+     position:relative;
+     margin-bottom: 36px;
+     border: white solid 1px;
+    }
+    .text {
+     color: white;
+    }
+    .box_book {
+
+    }
+    .text_book {
+     color: white;
+     font-size: 56px;
+     font-family: "book";
+     border-bottom:  1px solid white;
+    }
+    #slider img {	width:940px;	height:360px;}
+    .slide{width:100%;	height:100%;	}
+    .slide2{width:100%;	height:100%;	}
+    .slide3{width:100%;	height:100%;	}
+    .slide4{width:100%;	height:100%;	}
+    .slide5{width:100%;	height:100%;	}
+    .slide6{width:100%;	height:100%;	}
+    .slide7{width:100%;	height:100%;	}
+    .sli-links{ margin-top:10px;	text-align:center;}
+    .sli-links .control-slide{	margin:2px;	display:inline-block;	width:16px;	height:16px;	overflow:hidden;	text-indent:-9999px;
+    background:url(radioBg.png) center bottom no-repeat;}
+    .sli-links .control-slide:hover{	cursor:pointer;	background-position:center center;}
+    .sli-links .control-slide.active{	background-position:center top;}
+    #prewbutton, #nextbutton{display:block;	width:15px;	height:100%;	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+    #prewbutton{left:10px;}
+    #nextbutton{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton:hover, #nextbutton:hover{	opacity:1;}
+
+    #prewbutton2, #nextbutton2{display:block;	width:15px;	height:100%; 	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+
+    #prewbutton2{left:10px;}
+    #nextbutton2{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton2:hover, #nextbutton2:hover{	opacity:1;}
+
+
+
+    #prewbutton3, #nextbutton3{display:block;	width:15px;	height:100%; 	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+
+    #prewbutton3{left:10px;}
+    #nextbutton3{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton3:hover, #nextbutton2:hover{	opacity:1;}
+
+    #prewbutton4, #nextbutton4{display:block;	width:15px;	height:100%; 	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+
+    #prewbutton4{left:10px;}
+    #nextbutton4{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton4:hover, #nextbutton4:hover{	opacity:1;}
+
+
+    #prewbutton5, #nextbutton5{display:block;	width:15px;	height:100%; 	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+
+    #prewbutton5{left:10px;}
+    #nextbutton5{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton5:hover, #nextbutton5:hover{	opacity:1;}
+
+    #prewbutton6, #nextbutton6{display:block;	width:15px;	height:100%; 	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+
+    #prewbutton6{left:10px;}
+    #nextbutton6{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton6:hover, #nextbutton6:hover{	opacity:1;6}
+
+
+    #prewbutton7, #nextbutton7{display:block;	width:15px;	height:100%; 	position:absolute;	top:0;	overflow:hidden;	text-indent:-999px;	opacity:0.8;	z-index:3;	outline:none !important;
+    background:url("arrowleft.svg") left center no-repeat;	}
+
+    #prewbutton7{left:10px;}
+    #nextbutton7{	right:10px;
+    background:url("arrowright.svg") right center no-repeat;}
+    #prewbutton7:hover, #nextbutton7:hover{	opacity:1;6}
+
+
+    .container_events {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+    }
+    .box_img {
+      width: 259px;
+      height: 367px;
+      display: flex;
+      margin-bottom: 41px;
+      border: 2px solid #000;
+      margin: 50px;
+    }
+    .img_events {
+      width: 259px;
+      height: 367px;
+      object-fit: cover;
+    }
+    .img_box {
+      object-fit: cover;
+      width: 259px;
+      height: 367px;
+       filter: blur(5px);
+       margin: -5px -10px -10px -5px;
+    }
+    .border_img {
+        border: 2px solid black;
+         position: absolute;
+
+    }
+    /* .imgg:nth-child(2n) {
+      margin-left: 60px;
+      margin-right: 60px;
+    } */
+    .box_img:hover {
+    }
+
+
+    /* .imgg:nth-child(2n) {
+      margin-left: 50px;
+      margin-right: 50px;
+    } */
+    .text_events {
+      position: куrelative;
+    opacity: 1;
+    }
+    .textok {
+
+    }
+    .imgg {
+      display: flex;
+        margin: 1px;
+        margin-bottom: 41px;
+        overflow: hidden;
+    }
+    .img_boxik {
+      width: 259px;
+      height: 367px;
+      position: fixed;
+      margin: 1px;
+      margin-bottom: 41px;
+      border: 2px solid black;
+      margin: 50px;
+      background-color: grey;
+    }
+    .eveeent {
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 259px;
+    margin-bottom: 41px;
+    height: 367px;
+    position: relative;
+    }
+    .eveeent:hover img {
+    filter: blur(10px);
+    }
+    /* .eveeent:nth-child(2n) {
+      margin-left: 41px;
+      margin-right: 41px;
+    } */
+    .eveeent:hover .text_event {
+    opacity: 1;
+    }
+    .eveeent:hover .about_box {
+    opacity: 1;
+    }
+    .eveeent:hover .date {
+    opacity: 1;
+    }
+    @media screen and (max-width: 806px) {
+        .container_events {
+          max-width: 540px;
+          justify-content: flex-start;}
+          .last {
+        justify-content: flex-end;
+        }
+
+       }
+       @media screen and (max-width: 806px) {
+
+
+           .box_1 {
+               display: none;
+           }
+          }
+
+       @media screen and (max-width: 620px) {
+
+           .box_1 {
+               display: none !important;
+
+           }
+           .container_events {
+             justify-content: flex-start !important;
+             max-width: 300px !important;
+             margin: 0 auto !important;
+           }
+
+          }
+          @media screen and (max-width: 926px) {
+              .container_events {
+                justify-content: flex-start;
+                max-width: 620px;
+                margin: 0 auto;
+              }
+
+             }
+    /* .eveeent:nth-child(2) {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    .eveeent:nth-child(5) {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    .eveeent:nth-child(8) {
+      margin-left: 40px;
+      margin-right: 40px;
+    } */
+    .text_event {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #000;
+    display: flex;
+    padding: 11px;
+    font-size: 17px;
+    padding-left: 12px;
+    /* justify-content: center;
+    align-items: center; */
+    opacity: 0;
+    transition: opacity .3s;
+    color: white;
+    font-family: "book";
+    }
+    .about_box {
+      position: absolute;
+    width: 167px;
+    height: 44px;
+    left: 20px;
+    top: 304px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    }
+    .about_text {
+      font-size: 18px;
+      color: white;
+      font-family: "book";
+      align-items: center;
+      justify-content: center;
+    }
+    .date {
+      position: absolute;
+      bottom: 79px;
+      color: #000;
+      display: flex;
+      padding: 11px;
+      font-size: 17px;
+      padding-left: 12px;
+      /* justify-content: center;
+      align-items: center; */
+      opacity: 0;
+      color: white;
+      transition: opacity .3s;
+      font-family: "book";
+    }
+    .eveeent {
+      margin: 20px;
+    }
+    img  {
+      border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    filter: blur(0);
+    transition: filter .3s;
+    object-fit: cover;
+    }
+
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$('.burger').click(function(){
+            $('.menu_mini').css("display","block");
+              $('.menu_mini').css("height","100%");
+            $('burger').toggleClass('x2');
+            $('burger').toggleClass('x2');
+    	});
+      $('.burger').click(function(){
+        $('.burger').css("display","none");
+        $('.x2').css("display","block");
+      });
+      $('.x2').click(function(){
+        $('.x2').css("display","none");
+        $('.burger').css("display","block");
+      $('.menu_mini').css("display","none");
+      });
+    });
+    </script>
+<header class="header_menu_many">
+  <ul class="menu">
+      <li><a  href="" class="menu__item">ГЛАВНАЯ</a></li>
+      <li><a  href="" class="menu__item">ПРОСТРАНСТВО</a></li>
+      <li><a  href="" class="menu__item">СОБЫТИЯ</a></li>
+      <li><a  href="" class="menu__item">МАГАЗИН</a></li>
+      <li><a  href="" class="menu__item">КОНТАКТЫ</a></li>
+      <li><a  href="" class="menu__item">Контакты</a></li>
+  </ul>
+</header>
+<header class="header_menu_mini">
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <img src="img/x2.png" class="x2" alt="" style="width: 30px;">
+</header>
+<ul class="menu_mini" style="height: auto;">
+    <li><a href="" class="burger_text">ГЛАВНАЯ</a></li>
+    <hr>
+    <li><a href="" class="burger_text">СОБЫТИЯ</a></li>
+    <hr>
+    <li><a href="" class="burger_text">ПРОСТРАНСТВО</a></li>
+    <hr>
+    <li><a href="" class="burger_text">МАГАЗИН</a></li>
+    <hr>
+    <li><a href="" class="burger_text">ПОДБОР БЛЮДА</a></li>
+    <hr>
+    <li><a href=""class="burger_text">КОНТАКТЫ</a></li>
+    <hr>
+
+</ul>
+<div class="container_events">
+  <div class="eveeent">
+  <img src="img/poster2.png" />
+  <p class="text_event">
+  В этот день будет проводится фестиваль по борьбе со страхом клаустрофобии.
+  </p>
+  <p class="date">08.12.21 в 21:00</p>
+  <div class="about_box">
+<p class="about_text">ЗАПИСАТЬСЯ</p>
+  </div>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster1.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster3.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster4.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster5.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster6.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster7.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent">
+  <img src="img/poster8.png" />
+  <p>
+  Something
+  </p>
+  </div>
+  <div class="eveeent last">
+  <img src="img/poster9.png" />
+  <p class="text_event">
+  В этот день будет проводится фестиваль по борьбе со страхом клаустрофобии.
+  </p>
+  </div>
+</div>
+  </body>
+</html>
